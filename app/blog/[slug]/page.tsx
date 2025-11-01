@@ -26,6 +26,16 @@ async function getPostData(slug: string) {
   };
 }
 
+export async function generateStaticParams() {
+  // Return an array of all possible slug values
+  // In a real app, you'd fetch this from your CMS or data source
+  return [
+    { slug: 'navigating-future-marine-tech' },
+    { slug: 'sustainable-shipping' },
+    { slug: 'ai-in-maritime' },
+    // Add more slugs as needed
+  ];
+}
 
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = await getPostData(params.slug);
